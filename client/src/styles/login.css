@@ -1,0 +1,74 @@
+body
+{
+    background: #714545;
+}
+
+.base-flexbox-style
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.mobile-name
+{
+  max-width: 100%;
+  margin-top: 59px;
+}
+
+.mobile-logo
+{
+    max-width: 100%;
+    margin-top: 20px;
+}
+
+.input-username-textbox
+{
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 70%;
+    padding: 10px;
+    margin-top: 60px;
+    border: 1px solid;
+    border-radius: 4px;
+    max-width: 300px;
+}
+
+.input-password-textbox
+{
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 70%;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 4px;
+    max-width: 300px;
+}
+
+.rectangle
+{
+    margin-top: 20px;
+    width: 100px;
+    height: 30px;
+    border: 4px solid #233ECD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-text
+{
+    color: #FAFF00;
+}
+
+.sign-up-text-style
+{
+    margin-top: 30px;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.forgot-password-text-style
+{
+    font-size: 12px;
+    text-decoration: underline;
+}

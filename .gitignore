@@ -1,0 +1,10 @@
+client/node_modules/
+server/node_modules/
+build/
+.env
+*.log
+UDB.sql
+.DS_Store
+.vscode/
+*.bak
+*.tmp
