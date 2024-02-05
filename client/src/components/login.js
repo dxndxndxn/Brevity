@@ -1,97 +1,101 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/login.css';
 
 
 function MobileName()
 {
-  return (
-      <img src="/images/Brevity.png" alt="Mobile Name" className="mobile-name"/>
-  );
+  return <img src="/images/Brevity.png" alt="Mobile Name" className="mobile-name"/>;
 }
 
 function MobileLogoName()
 {
-  return (
-    <img src="/images/Logo.png" alt="Mobile Logo" className="mobile-logo"/>
-  )
+  return <img src="/images/Logo.png" alt="Mobile Logo" className="mobile-logo"/>;
 }
 
-function MobileUsernameTextbox()
+function MobileUsernameTextbox({ setUsername })
 {
-  return (
-    <input type="text" className="input-username-textbox"/>
-  )
+  return <input type="text" className="input-username-textbox" id="textbox-text-color" onChange={(e) => setUsername(e.target.value)}/>;
 }
 
 function MobileUsernameText()
 {
-  return (
-    <div>
-      Username
-    </div>
-  )
+  return <div className="login-text"> username </div>;
 }
 
-function MobilePasswordTextBox()
+function MobilePasswordTextBox({ setPassword })
 {
-  return (
-    <input type="password" className="input-password-textbox"/>
-  )
+  return <input type="password" className="input-password-textbox" id="textbox-text-color" onChange={(e) => setPassword(e.target.value)}/>;
 }
 
 function MobilePasswordText()
 {
-  return (
-    <div>
-      Password
-    </div>
-  )
+  return <div className="login-text">password</div>;
 }
 
-function MobileRectangleLoginBox()
+function MobileRectangleLoginBox({ handleLogin })
 {
   return (
-    <a href="URL">
-      <div class="rectangle">
-        <div class="login-text">
-          Login
-        </div>
+    <div className="rectangle" onClick={handleLogin}>
+      <div className="login-text">
+        <div className="login-word">login</div>
       </div>
-    </a>
-  )
-}
-
-function MobileSignUp()
-{
-  return (
-    <div className="sign-up-text-style">
-      Sign Up
     </div>
-  )
+  );
 }
 
-function MobileForgotPassword()
+export default function Login()
 {
-  return (
-    <div className="forgot-password-text-style">
-      Forgot Password
-    </div>
-  )
-}
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-export default function App()
-{
+  const handleLogin = async (event) =>
+  {
+    event.preventDefault();
+    setError('');
+
+    try
+    {
+      const response = await fetch('/login',
+      {
+        method: 'POST',
+        headers:
+        {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (response.ok)
+      {
+        navigate('/dashboard');
+      }
+
+      else
+      {
+        setError('Login failed. Please check your username and password.'); // Set error message
+      }
+    }
+
+    catch (error)
+    {
+      console.error(error);
+      setError('An error occurred while trying to log in.'); // Set error message
+    }
+  };
+
   return (
     <div className="base-flexbox-style">
-      <MobileName/>
-      <MobileLogoName/>
-      <MobileUsernameTextbox/>
-      <MobileUsernameText/>
-      <MobilePasswordTextBox/>
-      <MobilePasswordText/>
-      <MobileRectangleLoginBox/>
-      <MobileSignUp/>
-      <MobileForgotPassword/>
+      {error && <div className="login-error">{error}</div>} {/* Display error message */}
+      <MobileName />
+      <MobileLogoName />
+      <MobileUsernameTextbox setUsername={setUsername} />
+      <MobileUsernameText />
+      <MobilePasswordTextBox setPassword={setPassword} />
+      <MobilePasswordText />
+      <MobileRectangleLoginBox handleLogin={handleLogin} />
     </div>
   );
 }
