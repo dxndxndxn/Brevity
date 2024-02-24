@@ -1,0 +1,77 @@
+.parent
+{
+    position: relative;
+}
+
+.background-art
+{
+    position: absolute;
+}
+
+.red-rectangle
+{
+    position: absolute;
+    margin-left: 20px;
+}
+
+.red-rectangle-bottom
+{
+    position: absolute;
+    margin-left: 17px;
+    margin-top: 704px;
+}
+
+.send-button
+{
+    position: absolute;
+    height: 60px;
+    width: 80px;
+    margin-top: 703px;
+    margin-left: 251px;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.send-button img
+{
+    width: 100%;
+    height: 100%;
+}
+
+.chatroom-name
+{
+    position: absolute;
+    height: 42px;
+    margin-left: 80px;
+    margin-top: 12px;
+}
+
+.send-input
+{
+    position: absolute;
+    margin-top: 720px;
+    margin-left: 37px;
+    background-color: #171717;
+    color: #20fc90;
+    border: 3px solid rgba(0, 0, 0, 100);
+    padding: 10px;
+    outline: none;
+    width: 190px;
+    height: 6px;
+}
+
+.message-output
+{
+    position: absolute;
+    background-color: #171717;
+    color: #20fc90;
+    border: 3px solid rgba(0, 0, 0, 100);
+    padding: 10px;
+    outline: none;
+    width: 283px;
+    height: 612px;
+    margin-top: 68px;
+    margin-left: 27px;
+}

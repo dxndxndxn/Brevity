@@ -63,25 +63,6 @@ body
     color: #000000;
 }
 
-/*
-.login-word
-{
-}
-*/
-
-.sign-up-text-style
-{
-    margin-top: 30px;
-    font-size: 12px;
-    text-decoration: underline;
-}
-
-.forgot-password-text-style
-{
-    font-size: 12px;
-    text-decoration: underline;
-}
-
 #textbox-text-color
 {
     color:#20fc90;

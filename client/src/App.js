@@ -1,14 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/login';
-import Dashboard from './components/dashboard';
+import Friends from './components/friends';
 
-function App() {
+function App()
+{
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/friends" element={<Friends />} />
       </Routes>
     </Router>
   );

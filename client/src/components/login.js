@@ -68,15 +68,15 @@ export default function Login()
         body: JSON.stringify({ username, password }),
       });
 
-      if (response.ok)
-      {
-        navigate('/dashboard');
+      if (response.ok) {
+        const { accessToken, user } = await response.json();
+        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('user', JSON.stringify(user)); // Store user info as a string
+        navigate('/friends');
+      } else {
+        setError('Login failed. Please check your username and password.');
       }
 
-      else
-      {
-        setError('Login failed. Please check your username and password.'); // Set error message
-      }
     }
 
     catch (error)
